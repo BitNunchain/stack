@@ -22,6 +22,18 @@ Continue building your app on:
 
 **[https://v0.app/chat/projects/8WZoHHzYY5T](https://v0.app/chat/projects/8WZoHHzYY5T)**
 
+## Environment Variables for Vercel
+
+Set these in your Vercel dashboard:
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL=your-redirect-url
+```
+
+You can add more as needed for other services (API keys, secrets, etc.).
+
 ## How It Works
 
 1. Create and modify your project using [v0.app](https://v0.app)

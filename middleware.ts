@@ -2,8 +2,12 @@ import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
 
 export async function middleware(request: NextRequest) {
-  // Temporarily bypass all middleware logic to isolate the "self is not defined" error
-  return NextResponse.next()
+  // Basic authentication middleware for Vercel deployment
+  const token = request.cookies.get('auth-token');
+  if (!token) {
+    return NextResponse.redirect(new URL('/auth/login', request.url));
+  }
+  return NextResponse.next();
 }
 
 export const config = {
