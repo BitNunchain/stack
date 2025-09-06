@@ -54,7 +54,7 @@ export class ProofOfActionConsensus {
   }
 
   private getBaseReward(actionType: string): number {
-    const rewards = {
+    const rewards: Record<string, number> = {
       click: 0.1,
       page_visit: 0.5,
       form_submit: 2.0,

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Trophy, Leaf, Zap, Users, ShoppingBag } from "lucide-react"
+import styles from "./achievements.module.css"
 
 export function Achievements() {
   const [filter, setFilter] = useState("all")
@@ -182,12 +183,10 @@ export function Achievements() {
                               {achievement.progress} / {achievement.target}
                             </span>
                           </div>
-                          <div className="w-full bg-muted rounded-full h-1.5">
-                            <div
-                              className="bg-primary h-1.5 rounded-full transition-all"
-                              style={{ width: `${(achievement.progress / achievement.target) * 100}%` }}
-                            />
-                          </div>
+                          <div
+                            className={`bg-primary h-1.5 rounded-full transition-all`}
+                            data-progress={achievement.progress && achievement.target ? (achievement.progress / achievement.target) * 100 : 0}
+                          />
                         </div>
                       )}
                       <div className="flex items-center justify-between">

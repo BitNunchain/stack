@@ -80,7 +80,7 @@ export class WASMBlockchainNode {
       timestamp: Date.now(),
       nodeId: this.nodeId,
       metadata,
-      hash: this.generateActionHash(actionType, metadata),
+  hash: this.generateTransactionHash(actionType, metadata?.amount ?? 0, metadata?.type ?? ""),
     }
 
     // Enhanced reward calculation based on action type
