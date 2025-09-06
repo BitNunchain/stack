@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-import webVitals from "web-vitals"
+import * as webVitals from "web-vitals"
 
 interface WebVitalsMetric {
   name: string
@@ -37,12 +37,10 @@ export function WebVitals() {
     }
 
   // Measure Core Web Vitals
-  const { getCLS, getFID, getFCP, getLCP, getTTFB } = webVitals
-  getCLS(sendToAnalytics)
-  getFID(sendToAnalytics)
-  getFCP(sendToAnalytics)
-  getLCP(sendToAnalytics)
-  getTTFB(sendToAnalytics)
+  webVitals.onCLS(sendToAnalytics)
+  webVitals.onFCP(sendToAnalytics)
+  webVitals.onLCP(sendToAnalytics)
+  webVitals.onTTFB(sendToAnalytics)
   }, [])
 
   return null
