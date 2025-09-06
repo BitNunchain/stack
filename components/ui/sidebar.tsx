@@ -441,26 +441,14 @@ function SidebarGroupContent({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const { ref, ...rest } = props;
   return (
-    <Comp
-      data-slot="sidebar-group-action"
-      data-sidebar="group-action"
-      className={cn(
-        "text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 outline-hidden transition-transform focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
-        // Increases the hit area of the button on mobile.
-        "-m-2 p-2",
-        className
-      )}
-      {...rest}
-    />
-  )
-      data-slot="sidebar-menu"
-      data-sidebar="menu"
+    <div
+      data-slot="sidebar-group-content"
+      data-sidebar="group-content"
       className={cn("flex w-full min-w-0 flex-col gap-1", className)}
       {...props}
     />
-  )
+  );
 }
 
 function SidebarMenuItem({ className, ...props }: React.ComponentProps<"li">) {
