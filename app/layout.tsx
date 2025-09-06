@@ -98,108 +98,111 @@ export const metadata: Metadata = {
  */
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="dark">
-      <head>
-        {/* Example meta tag added as requested */}
-        <meta name="example-meta" content="This is an example meta tag." />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="manifest" href="/manifest.json" />
-        {/* Theme color meta tags for supported browsers.
-            Note: 'theme-color' is not supported by Firefox, Firefox for Android, Opera.
-            For broader support, use platform-specific tags below. */}
-  {/* 'theme-color' meta is not supported by Firefox, Firefox for Android, Opera */}
-  <meta name="theme-color" content="#164e63" />
-        <meta name="msapplication-navbutton-color" content="#164e63" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="BitnunEco" />
-        <meta name="application-name" content="BitnunEco" />
-        <meta name="msapplication-TileColor" content="#164e63" />
-        <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="google-site-verification" content="your-google-verification-code" />
-        <meta name="facebook-domain-verification" content="your-facebook-verification-code" />
-        <meta name="twitter:dnt" content="on" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "BitnunEco",
+  <html lang="en" className="dark">
+    <head>
+      {/* Example meta tag added as requested */}
+      <meta name="example-meta" content="This is an example meta tag." />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+      <link rel="manifest" href="/manifest.json" />
+      {/* Theme color meta tags for supported browsers.
+          Note: 'theme-color' is not supported by Firefox, Firefox for Android, Opera.
+          For broader support, use platform-specific tags below. */}
+      {/* Platform-specific theme color tags for broader support */}
+      <meta name="msapplication-navbutton-color" content="#164e63" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      {/* Firefox and Opera specific theme color */}
+      {/* Removed unsupported 'meta[name=theme-color]' tags with media attributes for Firefox, Firefox for Android, Opera */}
+      <meta name="msapplication-navbutton-color" content="#164e63" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-title" content="BitnunEco" />
+      <meta name="application-name" content="BitnunEco" />
+      <meta name="msapplication-TileColor" content="#164e63" />
+      <meta name="msapplication-config" content="/browserconfig.xml" />
+      <meta name="google-site-verification" content="your-google-verification-code" />
+      <meta name="facebook-domain-verification" content="your-facebook-verification-code" />
+      <meta name="twitter:dnt" content="on" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "BitnunEco",
+            description:
+              "Revolutionary browser-based blockchain platform with Action Mining and comprehensive Web3 features",
+            url: "https://bitnuneco.vercel.app",
+            logo: "https://bitnuneco.vercel.app/logo.png",
+            sameAs: [
+              "https://twitter.com/BitnunEco",
+              "https://facebook.com/bitnuneco",
+              "https://linkedin.com/company/bitnuneco",
+              "https://github.com/bitnuneco",
+            ],
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+1-555-123-4567",
+              contactType: "customer service",
+              email: "contact@bitnuneco.com",
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "San Francisco",
+              addressRegion: "CA",
+              addressCountry: "US",
+            },
+            foundingDate: "2024",
+            industry: "Blockchain Technology",
+            keywords: "blockchain, cryptocurrency, sustainable mining, Web3, DeFi, NFT, DAO governance",
+            offers: {
+              "@type": "Offer",
+              name: "BitnunEco Platform Services",
               description:
-                "Revolutionary browser-based blockchain platform with Action Mining and comprehensive Web3 features",
-              url: "https://bitnuneco.vercel.app",
-              logo: "https://bitnuneco.vercel.app/logo.png",
-              sameAs: [
-                "https://twitter.com/BitnunEco",
-                "https://facebook.com/bitnuneco",
-                "https://linkedin.com/company/bitnuneco",
-                "https://github.com/bitnuneco",
-              ],
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+1-555-123-4567",
-                contactType: "customer service",
-                email: "contact@bitnuneco.com",
-              },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "San Francisco",
-                addressRegion: "CA",
-                addressCountry: "US",
-              },
-              foundingDate: "2024",
-              industry: "Blockchain Technology",
-              keywords: "blockchain, cryptocurrency, sustainable mining, Web3, DeFi, NFT, DAO governance",
-              offers: {
-                "@type": "Offer",
-                name: "BitnunEco Platform Services",
-                description:
-                  "Comprehensive blockchain ecosystem with Action Mining, DeFi trading, NFT marketplace, and DAO governance",
-                category: "Blockchain Services",
-              },
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebApplication",
-              name: "BitnunEco Platform",
-              description: "Browser-based blockchain platform with Action Mining technology",
-              url: "https://bitnuneco.vercel.app",
-              applicationCategory: "FinanceApplication",
-              operatingSystem: "Web Browser",
-              offers: {
-                "@type": "Offer",
-                price: "0",
-                priceCurrency: "USD",
-                description: "Free to use blockchain platform",
-              },
-              featureList: [
-                "Action Mining",
-                "BTN Token Trading",
-                "NFT Marketplace",
-                "DeFi Services",
-                "DAO Governance",
-                "Cross-Chain Bridge",
-                "VR/AR Mining",
-              ],
-              screenshot: "https://bitnuneco.vercel.app/screenshot.png",
-              softwareVersion: "1.0.0",
-              datePublished: "2024-12-01",
-              author: {
-                "@type": "Organization",
-                name: "BitnunEco Team",
-              },
-            }),
-          }}
-        />
-      </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
+                "Comprehensive blockchain ecosystem with Action Mining, DeFi trading, NFT marketplace, and DAO governance",
+              category: "Blockchain Services",
+            },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "BitnunEco Platform",
+            description: "Browser-based blockchain platform with Action Mining technology",
+            url: "https://bitnuneco.vercel.app",
+            applicationCategory: "FinanceApplication",
+            operatingSystem: "Web Browser",
+            offers: {
+              "@type": "Offer",
+              price: "0",
+              priceCurrency: "USD",
+              description: "Free to use blockchain platform",
+            },
+            featureList: [
+              "Action Mining",
+              "BTN Token Trading",
+              "NFT Marketplace",
+              "DeFi Services",
+              "DAO Governance",
+              "Cross-Chain Bridge",
+              "VR/AR Mining",
+            ],
+            screenshot: "https://bitnuneco.vercel.app/screenshot.png",
+            softwareVersion: "1.0.0",
+            datePublished: "2024-12-01",
+            author: {
+              "@type": "Organization",
+              name: "BitnunEco Team",
+            },
+          }),
+        }}
+      />
+    </head>
+    <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <div id="root">
           <Suspense
             fallback={
