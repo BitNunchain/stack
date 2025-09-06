@@ -4,8 +4,8 @@ import React from "react"
 
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// import { Analytics } from "@vercel/analytics/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Suspense } from "react"
 import { PerformanceMonitor } from "@/components/qa/performance-monitor"
 import "./globals.css"
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <head>
       {/* Example meta tag added as requested */}
       <meta name="example-meta" content="This is an example meta tag." />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       <link rel="manifest" href="/manifest.json" />
@@ -217,8 +217,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {children}
           </Suspense>
         </div>
-        <Analytics />
-        <SpeedInsights />
+  {/* <Analytics /> */}
+  {/* <SpeedInsights /> */}
         <PerformanceMonitor />
         <script
           dangerouslySetInnerHTML={{
