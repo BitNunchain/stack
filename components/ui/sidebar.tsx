@@ -400,7 +400,6 @@ function SidebarGroupLabel({
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div"
 
-  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-group-label"
@@ -410,7 +409,7 @@ function SidebarGroupLabel({
         "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0",
         className
       )}
-      {...rest}
+      {...props}
     />
   )
 }
@@ -442,19 +441,20 @@ function SidebarGroupContent({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const { ref, ...rest } = props;
   return (
-    <div
-      data-slot="sidebar-group-content"
-      data-sidebar="group-content"
-      className={cn("w-full text-sm", className)}
-      {...props}
+    <Comp
+      data-slot="sidebar-group-action"
+      data-sidebar="group-action"
+      className={cn(
+        "text-sidebar-foreground ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground absolute top-3.5 right-3 flex aspect-square w-5 items-center justify-center rounded-md p-0 outline-hidden transition-transform focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0",
+        // Increases the hit area of the button on mobile.
+        "-m-2 p-2",
+        className
+      )}
+      {...rest}
     />
   )
-}
-
-function SidebarMenu({ className, ...props }: React.ComponentProps<"ul">) {
-  return (
-    <ul
       data-slot="sidebar-menu"
       data-sidebar="menu"
       className={cn("flex w-full min-w-0 flex-col gap-1", className)}
@@ -512,6 +512,7 @@ function SidebarMenuButton({
   const Comp = asChild ? Slot : "button"
   const { isMobile, state } = useSidebar()
 
+  const { ref, ...rest } = props;
   const button = (
     <Comp
       data-slot="sidebar-menu-button"
@@ -519,7 +520,7 @@ function SidebarMenuButton({
       data-size={size}
       data-active={isActive}
       className={cn(sidebarMenuButtonVariants({ variant, size }), className)}
-      {...props}
+      {...rest}
     />
   )
 
@@ -557,7 +558,6 @@ function SidebarMenuAction({
 }) {
   const Comp = asChild ? Slot : "button"
 
-  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-menu-action"
@@ -574,7 +574,7 @@ function SidebarMenuAction({
           "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
         className
       )}
-      {...rest}
+      {...props}
     />
   )
 }
@@ -681,7 +681,6 @@ function SidebarMenuSubButton({
 }) {
   const Comp = asChild ? Slot : "a"
 
-  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-menu-sub-button"
@@ -696,7 +695,7 @@ function SidebarMenuSubButton({
         "group-data-[collapsible=icon]:hidden",
         className
       )}
-      {...rest}
+      {...props}
     />
   )
 }
