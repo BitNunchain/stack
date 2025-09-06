@@ -18,9 +18,12 @@ export default function MetaversePage() {
 
   useEffect(() => {
     // Check WebXR support
-    if (typeof navigator !== "undefined") {
-      setVrSupported("xr" in navigator && "isSessionSupported" in navigator.xr!)
-      setArSupported("xr" in navigator && "isSessionSupported" in navigator.xr!)
+    if (typeof navigator !== "undefined" && "xr" in navigator && typeof navigator.xr === "object" && navigator.xr !== null) {
+      setVrSupported("isSessionSupported" in navigator.xr)
+      setArSupported("isSessionSupported" in navigator.xr)
+    } else {
+      setVrSupported(false)
+      setArSupported(false)
     }
   }, [])
 
