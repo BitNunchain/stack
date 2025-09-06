@@ -95,7 +95,7 @@ export function Achievements() {
     { id: "social", label: "Social", count: achievements.filter((a) => a.category === "social").length },
   ]
 
-  const rarityColors = {
+  const rarityColors: { [key: string]: string } = {
     common: "bg-gray-500",
     uncommon: "bg-green-500",
     rare: "bg-blue-500",
@@ -169,7 +169,7 @@ export function Achievements() {
                         +{achievement.points} XP
                       </Badge>
                       <span className="text-xs text-muted-foreground">
-                        Unlocked {new Date(achievement.unlockedAt).toLocaleDateString()}
+                        Unlocked {achievement.unlockedAt ? new Date(achievement.unlockedAt).toLocaleDateString() : "N/A"}
                       </span>
                     </div>
                   ) : (
