@@ -166,7 +166,7 @@ export default function KYCVerification({ onVerificationComplete }: KYCVerificat
                 <div className="p-6 border-2 border-dashed border-slate-600 rounded-lg text-center hover:border-cyan-400/50 transition-colors">
                   <Upload className="h-8 w-8 text-slate-400 mx-auto mb-2" />
                   <p className="text-white font-medium">Government ID</p>
-                  <p className="text-sm text-slate-400">Passport, Driver's License, or National ID</p>
+                  <p className="text-sm text-slate-400">Passport, Driver&apos;s License, or National ID</p>
                   <Button
                     variant="outline"
                     className="mt-3 border-cyan-500/30 hover:border-cyan-400/50 bg-transparent"
