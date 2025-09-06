@@ -400,6 +400,7 @@ function SidebarGroupLabel({
 }: React.ComponentProps<"div"> & { asChild?: boolean }) {
   const Comp = asChild ? Slot : "div"
 
+  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-group-label"
@@ -409,7 +410,7 @@ function SidebarGroupLabel({
         "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0",
         className
       )}
-      {...props}
+      {...rest}
     />
   )
 }
@@ -556,6 +557,7 @@ function SidebarMenuAction({
 }) {
   const Comp = asChild ? Slot : "button"
 
+  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-menu-action"
@@ -572,7 +574,7 @@ function SidebarMenuAction({
           "peer-data-[active=true]/menu-button:text-sidebar-accent-foreground group-focus-within/menu-item:opacity-100 group-hover/menu-item:opacity-100 data-[state=open]:opacity-100 md:opacity-0",
         className
       )}
-      {...props}
+      {...rest}
     />
   )
 }
@@ -679,6 +681,7 @@ function SidebarMenuSubButton({
 }) {
   const Comp = asChild ? Slot : "a"
 
+  const { ref, ...rest } = props;
   return (
     <Comp
       data-slot="sidebar-menu-sub-button"
@@ -693,7 +696,7 @@ function SidebarMenuSubButton({
         "group-data-[collapsible=icon]:hidden",
         className
       )}
-      {...props}
+      {...rest}
     />
   )
 }
