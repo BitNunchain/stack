@@ -4,7 +4,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { TrendingUp, Coins, Clock, Users } from "lucide-react"
 
-export function StakingHeader() {
+import React from "react";
+
+type StakingHeaderProps = {
+  activeTab: "pools" | "mystakes";
+  onTabChange: React.Dispatch<React.SetStateAction<"pools" | "mystakes">>;
+};
+
+export function StakingHeader({ activeTab, onTabChange }: StakingHeaderProps) {
   return (
     <div className="space-y-6">
       <div className="text-center space-y-4">
