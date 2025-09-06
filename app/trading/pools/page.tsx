@@ -26,7 +26,7 @@ export default function PoolsPage() {
           {activeTab === "analytics" && <PoolAnalytics />}
         </div>
 
-        {showAddLiquidity && <AddLiquidityModal onClose={() => setShowAddLiquidity(false)} />}
+  {showAddLiquidity && <AddLiquidityModal isOpen={showAddLiquidity} onClose={() => setShowAddLiquidity(false)} />}
       </div>
     </div>
   )
