@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Play, Pause, Zap, Cpu, Activity, Settings, Sparkles } from "lucide-react"
+import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card"
 import { useBlockchain } from "@/lib/hooks/use-blockchain"
 import { useRealTimeMiningStats } from "@/lib/hooks/use-real-time-data"
 
-export function MiningPanel() {
+
   const { stats, isConnected, recordAction, startMining, stopMining } = useBlockchain()
   const { stats: realTimeStats, loading: statsLoading } = useRealTimeMiningStats()
   const [progress, setProgress] = useState(0)
@@ -32,8 +33,101 @@ export function MiningPanel() {
     return () => clearInterval(interval)
   }, [stats.miningActive, stats.blocksInChain, recordAction])
 
+  const toggleMining = () => {
+    if (stats.miningActive) {
+      stopMining()
+    } else {
+      startMining()
+    }
+  }
 
-// ...existing MiningPanel function code...
+  return (
+    <Card className="w-full max-w-2xl mx-auto">
+      <CardHeader className="relative">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-3">
+            <div
+              className={`p-2 rounded-lg bg-gradient-to-br from-primary to-accent ${stats.miningActive ? "animate-pulse-glow" : ""} transition-all duration-300`}
+            >
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <CardTitle className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Browser Mining
+            </CardTitle>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Badge
+              variant={stats.miningActive ? "default" : "secondary"}
+              className={`${stats.miningActive ? "gradient-primary glow-primary animate-pulse" : "bg-muted"} font-semibold`}
+            >
+              {stats.miningActive ? "⚡ Active" : "⏸ Inactive"}
+            </Badge>
+            <Badge variant="outline" className="text-xs glass-effect border-primary/30">
+              Node: {stats.nodeId.slice(-6)}
+            </Badge>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hover:bg-primary/10 hover:glow-primary transition-all duration-300"
+            >
+              <Settings className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardContent className="space-y-6 relative">
+        <div className="flex items-center justify-between p-4 rounded-xl glass-effect border border-primary/20">
+          <Button
+            onClick={toggleMining}
+            disabled={!isConnected}
+            className={`
+              relative overflow-hidden group/btn px-8 py-3 font-semibold text-lg
+              ${stats.miningActive ? "bg-primary text-white" : "bg-muted text-primary"}
+            `}
+          >
+            {stats.miningActive ? (
+              <>
+                <Pause className="w-5 h-5 mr-2" /> Pause Mining
+              </>
+            ) : (
+              <>
+                <Play className="w-5 h-5 mr-2" /> Start Mining
+              </>
+            )}
+          </Button>
+          <div className="flex flex-col items-end">
+            <div className="flex items-center space-x-2">
+              <Cpu className="w-4 h-4 text-accent" />
+              <span className="text-xs font-mono">{stats.hashRate} H/s</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Zap className="w-4 h-4 text-primary" />
+              <span className="text-xs font-mono">{stats.energyUsage} Wh</span>
+            </div>
+          </div>
+        </div>
+        <div className="pt-2">
+          <Progress value={progress} max={100} className="h-3 rounded-full" />
+          <div className="flex justify-between text-xs mt-1">
+            <span>Block Progress</span>
+            <span>{Math.round(progress)}%</span>
+          </div>
+        </div>
+        <div className="flex items-center justify-between pt-2">
+          <div className="flex items-center space-x-2">
+            <Activity className="w-4 h-4 text-green-500" />
+            <span className="text-xs font-mono">Blocks: {stats.blocksInChain}</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Badge variant="secondary" className="text-xs">
+              {stats.miningActive ? "Mining..." : "Paused"}
+            </Badge>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  )
 }
 export default MiningPanel;
 
