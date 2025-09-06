@@ -1,0 +1,14 @@
+.mining-progress {
+  width: var(--progress-width, 0%);
+  height: 100%;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+  transition: width 0.3s;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

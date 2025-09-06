@@ -195,7 +195,10 @@ export default function SupportPage() {
 
               <div>
                 <label className="block text-white font-medium mb-2">Priority Level</label>
-                <select className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none">
+                <select
+                  className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-cyan-400 focus:outline-none"
+                  aria-label="Priority Level"
+                >
                   <option>Low - General question</option>
                   <option>Medium - Account issue</option>
                   <option>High - Transaction problem</option>

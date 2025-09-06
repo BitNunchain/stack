@@ -30,7 +30,7 @@ const UserProfile = dynamic(() => import("./user-profile").then(mod => mod.defau
   loading: () => <Skeleton className="h-24 w-full" />,
 })
 
-const SocialFeed = dynamic(() => import("./social-feed").then(mod => mod.default), {
+const SocialFeed = dynamic(() => import("./social-feed").then(mod => mod.SocialFeed), {
   ssr: false,
   loading: () => <Skeleton className="h-96 w-full" />,
 })

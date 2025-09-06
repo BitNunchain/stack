@@ -140,10 +140,15 @@ export function DashboardStats() {
                 </>
               )}
               <div className="w-full bg-muted rounded-full h-1 overflow-hidden">
-                <div
-                  className={styles["stat-progress"] + ` ${stat.gradient} group-hover:animate-pulse`}
-                  style={{ width: stat.loading ? "50%" : `${Math.min(100, (Number.parseFloat(stat.change.replace(/[^0-9.]/g, "")) || 0) * 5)}%` }}
-                />
+                <div className="w-full bg-muted rounded-full h-1 overflow-hidden">
+                  <div
+                    className={
+                      styles["stat-progress"] +
+                      ` ${stat.gradient} group-hover:animate-pulse ` +
+                      styles[`progress-${stat.loading ? 50 : Math.min(100, (Number.parseFloat(stat.change.replace(/[^0-9.]/g, "")) || 0) * 5)}`]
+                    }
+                  />
+                </div>
               </div>
             </CardContent>
           </Card>

@@ -5,6 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Play, Pause, Zap, Cpu, Activity, Settings, Sparkles } from "lucide-react";
 import { Card, CardHeader, CardContent, CardTitle } from "@/components/ui/card";
+import styles from "./mining-panel.module.css";
 import { useBlockchain } from "@/lib/hooks/use-blockchain";
 import { useRealTimeMiningStats } from "@/lib/hooks/use-real-time-data";
 
@@ -147,8 +148,7 @@ export function MiningPanel() {
 					<div className="relative">
 						<Progress value={progress} className="h-3 bg-muted border border-primary/20" />
 									<div
-										className={`absolute top-0 left-0 h-3 bg-gradient-to-r from-primary via-accent to-primary rounded-full animate-shimmer bg-[length:200%_100%] transition-all duration-300`}
-										style={{ width: `${progress}%` }}
+										className={`absolute top-0 left-0 ${styles['mining-progress']} bg-gradient-to-r from-primary via-accent to-primary rounded-full animate-shimmer bg-[length:200%_100%] transition-all duration-300 ${styles[`progress-${Math.round(progress)}`]}`}
 									/>
 					</div>
 				</div>

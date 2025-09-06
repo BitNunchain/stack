@@ -29,6 +29,8 @@ export function useBlockchain() {
     miningActive: false,
     actionRewards: 0,
     totalBalance: 0,
+    hashRate: 0,
+    energyUsage: 0,
   })
 
   const [isConnected, setIsConnected] = useState(false)
@@ -76,9 +78,11 @@ export function useBlockchain() {
         const node = await getBlockchainNode()
         if (!node) return
 
-        const networkStats = node.getNetworkStats()
-        setStats(networkStats)
-        setIsConnected(true)
+  const networkStats = node.getNetworkStats()
+  // Simulate energyUsage as a function of hashRate for now
+  const energyUsage = networkStats.hashRate ? Number((networkStats.hashRate * 0.75 + Math.random() * 0.25).toFixed(2)) : 0
+  setStats({ ...networkStats, energyUsage })
+  setIsConnected(true)
 
         if (user && networkStats.miningActive) {
           await supabase.from("mining_sessions").upsert(

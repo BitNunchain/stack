@@ -1,5 +1,7 @@
-import type React from "react"
+import type { ReactNode } from "react"
 import type { Metadata } from "next"
+import React from "react"
+
 import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
@@ -7,6 +9,11 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Suspense } from "react"
 import { PerformanceMonitor } from "@/components/qa/performance-monitor"
 import "./globals.css"
+
+
+type RootLayoutProps = {
+  children: ReactNode;
+};
 
 export const metadata: Metadata = {
   title: "BitnunEco - Next-Generation Blockchain Ecosystem",
@@ -83,24 +90,28 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+/**
+ * @param {{ children: React.ReactNode }} props
+ */
+/**
+ * @param {{ children: React.ReactNode }} props
+ */
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="dark">
       <head>
         {/* Example meta tag added as requested */}
         <meta name="example-meta" content="This is an example meta tag." />
-        {/* ...existing code... */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#164e63" />
-        <meta name="color-scheme" content="dark light" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        {/* Theme color meta tags for supported browsers.
+            Note: 'theme-color' is not supported by Firefox, Firefox for Android, Opera.
+            For broader support, use platform-specific tags below. */}
+  {/* 'theme-color' meta is not supported by Firefox, Firefox for Android, Opera */}
+  <meta name="theme-color" content="#164e63" />
+        <meta name="msapplication-navbutton-color" content="#164e63" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="BitnunEco" />
         <meta name="application-name" content="BitnunEco" />

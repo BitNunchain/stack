@@ -159,7 +159,7 @@ export default function BillingPage() {
                         <span className="text-sm text-red-400">$1,247.80</span>
                       </div>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-red-500 h-2 rounded-full" style={{ width: "100%" }}></div>
+                        <div className="bg-red-500 h-2 rounded-full w-full"></div>
                       </div>
                     </div>
                     <div>
@@ -168,7 +168,7 @@ export default function BillingPage() {
                         <span className="text-sm text-orange-400">$1,156.40</span>
                       </div>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-orange-500 h-2 rounded-full" style={{ width: "93%" }}></div>
+                        <div className="bg-orange-500 h-2 rounded-full w-[93%]"></div>
                       </div>
                     </div>
                     <div>
@@ -177,7 +177,7 @@ export default function BillingPage() {
                         <span className="text-sm text-emerald-400">$274.58 (247.8 BTN)</span>
                       </div>
                       <div className="w-full bg-slate-700 rounded-full h-2">
-                        <div className="bg-emerald-500 h-2 rounded-full" style={{ width: "22%" }}></div>
+                        <div className="bg-emerald-500 h-2 rounded-full w-[22%]"></div>
                       </div>
                     </div>
                   </div>
