@@ -29,7 +29,7 @@ export function SocialHeader({ activeTab, onTabChange }: SocialHeaderProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        <Tabs value={activeTab} onValueChange={onTabChange}>
+  <Tabs value={activeTab} onValueChange={value => onTabChange(value as "feed" | "traders" | "creators" | "signals") }>
           <TabsList>
             <TabsTrigger value="feed">
               <Zap className="w-4 h-4 mr-2" />
