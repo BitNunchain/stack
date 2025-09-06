@@ -91,12 +91,15 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="icon" href="/favicon.ico" sizes="any" />
-  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        {/* Example meta tag added as requested */}
+        <meta name="example-meta" content="This is an example meta tag." />
+        {/* ...existing code... */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#164e63" />
-  <meta name="color-scheme" content="dark light" />
+        <meta name="theme-color" content="#164e63" />
+        <meta name="color-scheme" content="dark light" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="BitnunEco" />
