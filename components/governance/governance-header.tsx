@@ -30,7 +30,7 @@ export function GovernanceHeader({ activeTab, onTabChange, onCreateProposal }: G
       </div>
 
       <div className="flex items-center gap-4">
-        <Tabs value={activeTab} onValueChange={onTabChange}>
+    <Tabs value={activeTab} onValueChange={value => onTabChange(value as "proposals" | "treasury" | "voting")}>
           <TabsList>
             <TabsTrigger value="proposals">
               <Vote className="w-4 h-4 mr-2" />
