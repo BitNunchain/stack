@@ -21,7 +21,7 @@ interface UserProfile {
   created_at: string
 }
 
-export function UserProfile() {
+function UserProfile() {
   const [user, setUser] = useState<User | null>(null)
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [loading, setLoading] = useState(true)
@@ -131,4 +131,4 @@ export function UserProfile() {
     </Card>
   )
 }
-  export default UserProfile;
+export default UserProfile;
