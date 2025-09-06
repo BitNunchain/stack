@@ -30,7 +30,7 @@ export function PoolsHeader({ activeTab, onTabChange, onAddLiquidity }: PoolsHea
       </div>
 
       <div className="flex items-center gap-4">
-        <Tabs value={activeTab} onValueChange={onTabChange}>
+  <Tabs value={activeTab} onValueChange={value => onTabChange(value as "pools" | "farming" | "analytics") }>
           <TabsList>
             <TabsTrigger value="pools">
               <Droplets className="w-4 h-4 mr-2" />
