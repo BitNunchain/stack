@@ -123,7 +123,7 @@ export function DeveloperIncentives() {
       <Card>
         <CardHeader>
           <CardTitle>Monthly Challenge</CardTitle>
-          <CardDescription>Complete this month's challenge to earn bonus rewards</CardDescription>
+          <CardDescription>Complete this month&apos;s challenge to earn bonus rewards</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">

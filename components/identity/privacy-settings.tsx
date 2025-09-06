@@ -220,7 +220,7 @@ export function PrivacySettings() {
           <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
             <h4 className="font-medium text-blue-800 mb-2">Review Connected Apps</h4>
             <p className="text-sm text-blue-700 mb-3">
-              Some connected apps haven't been used recently. Consider revoking access to apps you no longer use.
+              Some connected apps haven&apos;t been used recently. Consider revoking access to apps you no longer use.
             </p>
             <Button size="sm" variant="outline">
               Review Apps

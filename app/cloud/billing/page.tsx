@@ -182,7 +182,7 @@ export default function BillingPage() {
                     </div>
                   </div>
                   <div className="p-3 bg-emerald-900/20 border border-emerald-500/30 rounded-lg">
-                    <p className="text-emerald-400 font-medium">You're saving $973.22 (78%) this month!</p>
+                    <p className="text-emerald-400 font-medium">You&apos;re saving $973.22 (78%) this month!</p>
                     <p className="text-sm text-slate-400 mt-1">Powered by decentralized infrastructure</p>
                   </div>
                 </CardContent>

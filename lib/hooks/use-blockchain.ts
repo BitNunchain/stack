@@ -10,8 +10,8 @@ const getBlockchainNode = async () => {
 
   if (!enhancedBlockchainNode) {
     try {
-      const module = await import("../blockchain/enhanced-wasm-node")
-      enhancedBlockchainNode = module.getEnhancedBlockchainNode()
+  const wasmModule = await import("../blockchain/enhanced-wasm-node")
+  enhancedBlockchainNode = wasmModule.getEnhancedBlockchainNode()
     } catch (error) {
       console.error("[v0] Failed to load blockchain node:", error)
       return null

@@ -6,8 +6,8 @@ let enhancedBlockchainNode: any = null
 
 const getBlockchainNode = async () => {
   if (!enhancedBlockchainNode && typeof window !== "undefined") {
-    const module = await import("../blockchain/enhanced-wasm-node")
-    enhancedBlockchainNode = module.enhancedBlockchainNode
+  const wasmModule = await import("../blockchain/enhanced-wasm-node")
+  enhancedBlockchainNode = wasmModule.enhancedBlockchainNode
   }
   return enhancedBlockchainNode
 }

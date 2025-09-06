@@ -178,7 +178,7 @@ export default function SupportPage() {
                 <span>Submit Support Ticket</span>
               </CardTitle>
               <CardDescription className="text-slate-300">
-                Describe your issue and we'll get back to you within 2 hours
+                Describe your issue and we&apos;ll get back to you within 2 hours
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">

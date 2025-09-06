@@ -189,7 +189,7 @@ export function ReputationScore() {
                 </div>
                 <span className="text-sm text-gray-500">{endorsement.date}</span>
               </div>
-              <p className="text-sm italic">"{endorsement.message}"</p>
+              <p className="text-sm italic">&quot;{endorsement.message}&quot;</p>
             </div>
           ))}
         </CardContent>

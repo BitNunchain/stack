@@ -37,7 +37,7 @@ export default function MetaversePage() {
               Device Compatibility
             </CardTitle>
             <CardDescription>
-              Check your device's AR/VR capabilities for BitnunEco metaverse experiences
+              Check your device&apos;s AR/VR capabilities for BitnunEco metaverse experiences
             </CardDescription>
           </CardHeader>
           <CardContent>

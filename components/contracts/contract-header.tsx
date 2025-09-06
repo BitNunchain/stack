@@ -15,7 +15,7 @@ export function ContractHeader() {
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">Smart Contract Deployment</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Deploy native smart contracts on BitnunEco's WASM-powered blockchain with zero gas fees and instant
+            Deploy native smart contracts on BitnunEco&apos;s WASM-powered blockchain with zero gas fees and instant
             execution
           </p>
         </div>
