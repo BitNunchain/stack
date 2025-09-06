@@ -5,6 +5,7 @@ import { Wallet, Coins, TrendingUp, Users, Zap, Leaf } from "lucide-react";
 import { SocialShare } from "./social-share";
 import { useRealTimeProfile, useRealTimeMiningStats } from "@/lib/hooks/use-real-time-data";
 import { useAuth } from "@/lib/hooks/use-auth";
+import styles from "./dashboard-stats.module.css";
 
 export function DashboardStats() {
   const { user } = useAuth()
@@ -100,8 +101,7 @@ export function DashboardStats() {
         {stats.map((stat, index) => (
           <Card
             key={index}
-            className={`glass-effect futuristic-border group cursor-pointer hover:scale-105 transition-all duration-300 ease-out hover:shadow-2xl hover:${stat.glow} animate-float`}
-            style={{ animationDelay: `${index * 0.1}s` }}
+            className={`glass-effect futuristic-border group cursor-pointer hover:scale-105 transition-all duration-300 ease-out hover:shadow-2xl hover:${stat.glow} animate-float card-delay-${index}`}
           >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
@@ -141,13 +141,8 @@ export function DashboardStats() {
               )}
               <div className="w-full bg-muted rounded-full h-1 overflow-hidden">
                 <div
-                  className={`h-full bg-gradient-to-r ${stat.gradient} rounded-full animate-shimmer bg-[length:200%_100%] group-hover:animate-pulse`}
-                  style={{
-                    width: stat.loading
-                      ? "50%"
-                      : `${Math.min(100, (Number.parseFloat(stat.change.replace(/[^0-9.]/g, "")) || 0) * 5)}%`,
-                    animationDelay: `${index * 0.2}s`,
-                  }}
+                  className={styles["stat-progress"] + ` ${stat.gradient} group-hover:animate-pulse`}
+                  style={{ width: stat.loading ? "50%" : `${Math.min(100, (Number.parseFloat(stat.change.replace(/[^0-9.]/g, "")) || 0) * 5)}%` }}
                 />
               </div>
             </CardContent>
