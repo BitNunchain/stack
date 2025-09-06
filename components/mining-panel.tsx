@@ -1,7 +1,5 @@
 "use client"
-
 import { useState, useEffect } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
@@ -35,23 +33,9 @@ export function MiningPanel() {
   }, [stats.miningActive, stats.blocksInChain, recordAction])
 
 
+// ...existing MiningPanel function code...
+}
 export default MiningPanel;
-      stopMining()
-      recordAction("mining_stopped", { duration: Date.now() })
-    } else {
-      startMining()
-      recordAction("mining_started", { nodeId: stats.nodeId })
-    }
-  }
-
-  const hashRate = stats.miningActive ? realTimeStats.hashRate : 0
-
-  return (
-    <Card className="glass-effect futuristic-border group relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-      <div
-        className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${stats.miningActive ? "from-green-400/20 to-emerald-600/20" : "from-gray-400/10 to-gray-600/10"} rounded-full blur-2xl transition-all duration-1000`}
-      />
 
       <CardHeader className="relative">
         <div className="flex items-center justify-between">
