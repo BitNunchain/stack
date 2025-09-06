@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Search, Star, TrendingUp, TrendingDown } from "lucide-react"
 
-interface Token {
+export interface Token {
   symbol: string
   name: string
   price: number
