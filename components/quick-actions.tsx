@@ -77,5 +77,6 @@ export function QuickActions() {
       </CardContent>
     </Card>
   )
-  export default QuickActions;
 }
+
+export default QuickActions;

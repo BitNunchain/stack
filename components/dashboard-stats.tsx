@@ -1,11 +1,10 @@
 "use client"
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Wallet, Coins, TrendingUp, Users, Zap, Leaf } from "lucide-react"
-import { SocialShare } from "./social-share"
-import { useRealTimeProfile, useRealTimeMiningStats } from "@/lib/hooks/use-real-time-data"
-import { useAuth } from "@/lib/hooks/use-auth"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Wallet, Coins, TrendingUp, Users, Zap, Leaf } from "lucide-react";
+import { SocialShare } from "./social-share";
+import { useRealTimeProfile, useRealTimeMiningStats } from "@/lib/hooks/use-real-time-data";
+import { useAuth } from "@/lib/hooks/use-auth";
 
 export function DashboardStats() {
   const { user } = useAuth()
@@ -157,5 +156,5 @@ export function DashboardStats() {
       </div>
     </div>
   )
-export default DashboardStats;
 }
+export default DashboardStats;

@@ -34,9 +34,8 @@ export function MiningPanel() {
     return () => clearInterval(interval)
   }, [stats.miningActive, stats.blocksInChain, recordAction])
 
-  export default MiningPanel;
-  const toggleMining = () => {
-    if (stats.miningActive) {
+
+export default MiningPanel;
       stopMining()
       recordAction("mining_stopped", { duration: Date.now() })
     } else {
