@@ -5,32 +5,32 @@ import { Suspense } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 
 // Dynamic imports with ssr: false to prevent server-side execution
-const DashboardStats = dynamic(() => import("./dashboard-stats"), {
+const DashboardStats = dynamic(() => import("./dashboard-stats").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-32 w-full" />,
 })
 
-const MiningPanel = dynamic(() => import("./mining-panel"), {
+const MiningPanel = dynamic(() => import("./mining-panel").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-48 w-full" />,
 })
 
-const RecentActivity = dynamic(() => import("./recent-activity"), {
+const RecentActivity = dynamic(() => import("./recent-activity").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-64 w-full" />,
 })
 
-const QuickActions = dynamic(() => import("./quick-actions"), {
+const QuickActions = dynamic(() => import("./quick-actions").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-40 w-full" />,
 })
 
-const UserProfile = dynamic(() => import("./user-profile"), {
+const UserProfile = dynamic(() => import("./user-profile").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-24 w-full" />,
 })
 
-const SocialFeed = dynamic(() => import("./social-feed"), {
+const SocialFeed = dynamic(() => import("./social-feed").then(mod => mod.default), {
   ssr: false,
   loading: () => <Skeleton className="h-96 w-full" />,
 })

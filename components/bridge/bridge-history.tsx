@@ -23,6 +23,9 @@ interface BridgeTransaction {
 export function BridgeHistory() {
   const [transactions, setTransactions] = useState<BridgeTransaction[]>([])
   const [filter, setFilter] = useState<"all" | "completed" | "pending" | "failed">("all")
+  const handleFilterChange = (value: string) => {
+    setFilter(value as "all" | "completed" | "pending" | "failed")
+  }
   const [searchTerm, setSearchTerm] = useState("")
 
   useEffect(() => {
@@ -126,7 +129,7 @@ export function BridgeHistory() {
             />
           </div>
 
-          <Select value={filter} onValueChange={setFilter}>
+          <Select value={filter} onValueChange={handleFilterChange}>
             <SelectTrigger className="w-full sm:w-48">
               <SelectValue />
             </SelectTrigger>

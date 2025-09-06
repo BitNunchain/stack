@@ -101,12 +101,7 @@ export function DashboardStats() {
         {stats.map((stat, index) => (
           <Card
             key={index}
-            className={`
-              glass-effect futuristic-border group cursor-pointer
-              hover:scale-105 transition-all duration-300 ease-out
-              hover:shadow-2xl hover:${stat.glow}
-              animate-float
-            `}
+            className={`glass-effect futuristic-border group cursor-pointer hover:scale-105 transition-all duration-300 ease-out hover:shadow-2xl hover:${stat.glow} animate-float`}
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
@@ -114,11 +109,7 @@ export function DashboardStats() {
                 {stat.title}
               </CardTitle>
               <div
-                className={`
-                p-2 rounded-lg bg-gradient-to-br ${stat.gradient} 
-                group-hover:scale-110 transition-transform duration-300
-                shadow-lg group-hover:shadow-xl
-              `}
+                className={`p-2 rounded-lg bg-gradient-to-br ${stat.gradient} group-hover:scale-110 transition-transform duration-300 shadow-lg group-hover:shadow-xl`}
               >
                 <stat.icon className="h-4 w-4 text-white" />
               </div>
@@ -132,44 +123,26 @@ export function DashboardStats() {
               ) : (
                 <>
                   <div
-                    className={`
-                    text-3xl font-bold bg-gradient-to-r ${stat.gradient} 
-                    bg-clip-text text-transparent group-hover:scale-105 
-                    transition-transform duration-300 inline-block
-                  `}
+                    className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300 inline-block`}
                   >
                     {stat.value}
                   </div>
-
                   <div className="flex items-center justify-between">
                     <p className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
                       {stat.description}
                     </p>
                     <Badge
                       variant={stat.changeType === "positive" ? "default" : "destructive"}
-                      className={`
-                        text-xs font-semibold px-2 py-1 rounded-full
-                        ${
-                          stat.changeType === "positive"
-                            ? `bg-gradient-to-r ${stat.gradient} text-white shadow-lg hover:shadow-xl`
-                            : "bg-destructive text-destructive-foreground"
-                        }
-                        group-hover:scale-110 transition-all duration-300
-                      `}
+                      className={`text-xs font-semibold px-2 py-1 rounded-full ${stat.changeType === "positive" ? `bg-gradient-to-r ${stat.gradient} text-white shadow-lg hover:shadow-xl` : "bg-destructive text-destructive-foreground"} group-hover:scale-110 transition-all duration-300`}
                     >
                       {stat.change}
                     </Badge>
                   </div>
                 </>
               )}
-
               <div className="w-full bg-muted rounded-full h-1 overflow-hidden">
                 <div
-                  className={`
-                    h-full bg-gradient-to-r ${stat.gradient} rounded-full
-                    animate-shimmer bg-[length:200%_100%]
-                    group-hover:animate-pulse
-                  `}
+                  className={`h-full bg-gradient-to-r ${stat.gradient} rounded-full animate-shimmer bg-[length:200%_100%] group-hover:animate-pulse`}
                   style={{
                     width: stat.loading
                       ? "50%"
@@ -184,4 +157,5 @@ export function DashboardStats() {
       </div>
     </div>
   )
+export default DashboardStats;
 }

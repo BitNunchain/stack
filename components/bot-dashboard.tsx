@@ -36,8 +36,10 @@ export function BotDashboard() {
 
   useEffect(() => {
     const updateBotData = () => {
-      setBots(botManager.getAllBots())
-      setBotStats(botManager.getBotStats())
+      if (botManager) {
+        setBots(botManager.getAllBots())
+        setBotStats(botManager.getBotStats())
+      }
     }
 
     updateBotData()
@@ -75,6 +77,7 @@ export function BotDashboard() {
   }
 
   const toggleBot = (botId: string, currentStatus: string) => {
+    if (!botManager) return;
     if (currentStatus === "active") {
       botManager.pauseBot(botId)
     } else {
@@ -215,7 +218,7 @@ export function BotDashboard() {
                     size="sm"
                     variant="outline"
                     className="flex-1 hover:bg-green-500/10 hover:border-green-500/30 bg-transparent"
-                    onClick={() => botManager.startBot(bot.id)}
+                    onClick={() => botManager && botManager.startBot(bot.id)}
                     disabled={bot.status === "active"}
                   >
                     <Play className="w-3 h-3 mr-1" />
@@ -225,7 +228,7 @@ export function BotDashboard() {
                     size="sm"
                     variant="outline"
                     className="flex-1 hover:bg-yellow-500/10 hover:border-yellow-500/30 bg-transparent"
-                    onClick={() => botManager.pauseBot(bot.id)}
+                    onClick={() => botManager && botManager.pauseBot(bot.id)}
                     disabled={bot.status !== "active"}
                   >
                     <Pause className="w-3 h-3 mr-1" />
@@ -235,7 +238,7 @@ export function BotDashboard() {
                     size="sm"
                     variant="outline"
                     className="flex-1 hover:bg-red-500/10 hover:border-red-500/30 bg-transparent"
-                    onClick={() => botManager.stopBot(bot.id)}
+                    onClick={() => botManager && botManager.stopBot(bot.id)}
                     disabled={bot.status === "inactive"}
                   >
                     <Square className="w-3 h-3 mr-1" />

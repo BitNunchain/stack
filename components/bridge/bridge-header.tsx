@@ -9,6 +9,10 @@ interface BridgeHeaderProps {
 }
 
 export function BridgeHeader({ activeTab, onTabChange }: BridgeHeaderProps) {
+  // Cast string value to union type for onTabChange
+  const handleTabChange = (value: string) => {
+    onTabChange(value as "bridge" | "history" | "networks")
+  }
   return (
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
       <div className="flex items-center gap-6">
@@ -27,7 +31,7 @@ export function BridgeHeader({ activeTab, onTabChange }: BridgeHeaderProps) {
       </div>
 
       <div className="flex items-center gap-4">
-        <Tabs value={activeTab} onValueChange={onTabChange}>
+        <Tabs value={activeTab} onValueChange={handleTabChange}>
           <TabsList>
             <TabsTrigger value="bridge">
               <Bridge className="w-4 h-4 mr-2" />
